@@ -102,7 +102,7 @@ Route::post('/tasks', function(TaskRequest $request){
   // $task->long_description = $data['long_description'];
   // $task->save();
   $task = Task::create($request->validated());
-  
+
   return redirect()->route('tasks.show', ['task' => $task->id])
     ->with('success','Task created successfully');
 })->name('tasks.store');
@@ -119,6 +119,13 @@ Route::put('/tasks/{task}', function(Task $task, TaskRequest $request){
   return redirect()->route('tasks.show', ['task' => $task->id])
     ->with('success','Task updated successfully');
 })->name('tasks.update');
+
+Route::delete('/tasks/{task}', function (Task $task){
+  $task->delete();
+
+  return redirect()->route('tasks.index')
+  ->with('success','Task deleted successfully!');
+})->name('tasks.destroy');
 
 //Practice code
 // Route::get('/hello', function () {
