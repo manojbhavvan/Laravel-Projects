@@ -3,14 +3,18 @@
 @section('title', $task->title)
 
 @section('content')
+    <h3>Description</h3>
     <p>{{ $task->description }}</p>
-    <p>{{ $task->long_description }}</p>
 
+    <h3>Long Description</h3>
     @if ($task->long_description)
         <p>{{ $task->long_description }}</p>
     @endif
-
+    
+    <h3>Created At</h3>
     <p>{{ $task->created_at }}</p>
+    
+    <h3>Updated At</h3>
     <p>{{ $task->updated_at }}</p>
 
     <div>
