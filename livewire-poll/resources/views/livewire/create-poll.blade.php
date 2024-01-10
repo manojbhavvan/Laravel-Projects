@@ -4,6 +4,10 @@
 
         <input type="text" wire:model="title" />
 
+        @error('title')
+            <div class="text-red-500">{{ $message }}</div>
+        @enderror
+
         {{-- Current Title: {{ $title }} --}}
 
         <div class="mb-4 mt-4">
@@ -18,6 +22,9 @@
                         <input type="text" wire:model="options.{{ $index }}" />
                         <button class="btn" wire:click.prevent="removeOption({{ $index }})">Remove</button>
                     </div>
+                    @error('title')
+                        <div class="text-red-500">{{ $message }}</div>
+                    @enderror
                 </div>
                 {{-- {{ $index }} - {{ $option }} --}}
             @endforeach
